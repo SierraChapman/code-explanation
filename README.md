@@ -46,7 +46,12 @@ This file defines the following HTML routes:
 
 ### api-routes
 
-defines api routes
+This file defines the following API routes:
+
+* POST request to "/api/login": uses passport to authenticate and then log in the user.
+* POST request to "/api/signup": adds the new email and password to the User table in the database. If this was successful, the user is redirected to make a login API request. If adding the user failed (e.g. because the email is already used), an error status code and the error JSON object are sent back.
+* GET request to "/logout": logs out the user and redirects them to the signup page.
+* GET request to "/api/user_data": responds with the current user's email and id if they are logged in; otherwise, responds with an empty object.
 
 ## models
 

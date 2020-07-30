@@ -1,7 +1,9 @@
 # Code Explanation
+
 This is a walkthrough I wrote to explain a pre-existing application that checks it a user is signed in using passport. If they are signed in, they are shown a page with their email address and a functioning "log out" button, and if they are not signed in, they can log in or sign up. In addition to writing this README, I edited and added comments in the files themselves. The code was provided by Trilogy Education Services, a 2U, Inc.
 
 ## server.js
+
 The `server.js` file sets up and starts the server. Some of it's important function are:
 
 * Loading the passport configuration defined in [config/passport.js](#passport.js).
@@ -14,59 +16,82 @@ The `server.js` file sets up and starts the server. Some of it's important funct
 * Syncing the database with the sequelize models.
 * Starting the server.
 
-## routes
-contains files with stored routes
-
-### html-routes.js
-defines html routes
-
-### api-routes
-defines api routes
-
-## models
-models files
-
-### index.js
-imports all moels
-
-### user.js
-defines user model
-
 ## config
+
 configuration files
 
 ### config.json
+
 info about accessing the database
 
 ### passport.js
+
 defines authentication behavior
 
 ### middleware/isAuthenticated.js
+
 checks if the user is authenticated and proceeds accordingly
 
+## routes
+
+The `routes` directory defines the HTML and API routes that the server listens for.
+
+### html-routes.js
+
+This file defines the following HTML routes:
+
+* GET request to "/": redirects to "/members" if the user is logged in; otherwise, responds with the signup page for adding a user.
+* GET request to "/login": redirects to "/members" if the user is logged in; otherwise, responds with the login page for signing in an existing user.
+* GET request to "/members": uses the [isAuthenticated](#middleware/isAuthenticated.js) custom middleware function to redirect users who are not logged in to the signup page, then sends the html page for viewing the current user's email for logged in users.
+
+### api-routes
+
+defines api routes
+
+## models
+
+models files
+
+### index.js
+
+imports all moels
+
+### user.js
+
+defines user model
+
 ## public
+
 files to serve to the client
 
 ### js
+
 client-side javascript
 
 #### login.js
+
 client-side logic for the login page
 
 #### members.js
+
 client-side logic for the members page
 
 #### signup.js
+
 client-side logic for the signup page
 
 ### stylesheets/style.css
+
 styles to be applied to html
 
 ### login.html
+
 login page
 
 ### members.html
+
 members page
 
 ### signup.html
+
 signup page

@@ -1,5 +1,5 @@
 # Code Explanation
-This is a walkthrough of a pre-existing application that allows user's to sign up or log in and uses passport to determine if they are logged in.
+This is a walkthrough I wrote to explain a pre-existing application that checks it a user is signed in using passport. If they are signed in, they are shown a page with their email address and a functioning "log out" button, and if they are not signed in, they can log in or sign up. In addition to writing this README, I edited and added comments in the files themselves. The code was provided by Trilogy Education Services, a 2U, Inc.
 
 ## server.js
 The `server.js` file sets up and starts the server. Some of it's important function are:

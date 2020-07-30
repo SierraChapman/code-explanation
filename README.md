@@ -4,13 +4,13 @@ This is a walkthrough I wrote to explain a pre-existing application that checks 
 ## server.js
 The `server.js` file sets up and starts the server. Some of it's important function are:
 
-* Loading the passport configuration defined in `config/passport.js`.
-* Importing all the sequelize models defined in `models` and saves them as `db`.
+* Loading the passport configuration defined in [config/passport.js](#passport.js).
+* Importing all the sequelize models defined in [models](#models) and saves them as `db`.
 * Adding middleware to the server that:
     * Parses JSON sent in requests.
     * Serves the contents of the public file.
     * Keeps track of the user's login status using express-session.
-    * Uses the passport authentication defined in `config/passport.js`.
+    * Uses the passport authentication defined in [config/passport.js](#passport.js).
 * Syncing the database with the sequelize models.
 * Starting the server.
 

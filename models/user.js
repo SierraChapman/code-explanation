@@ -1,29 +1,28 @@
-// Requiring bcrypt for password hashing. Using the bcryptjs version as the regular bcrypt module sometimes causes errors on Windows machines
+// Require bcrypt for password hashing
 var bcrypt = require("bcryptjs");
-// Creating our User model
+// Create the User model
 module.exports = function(sequelize, DataTypes) {
+  // Define the columns of the Users table
   var User = sequelize.define("User", {
-    // The email cannot be null, and must be a proper email before creation
     email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
+      type: DataTypes.STRING, // Email is of the string datatype
+      allowNull: false, // Email cannot be null
+      unique: true, // Each email address can only be associated with one user account
       validate: {
-        isEmail: true
+        isEmail: true // Must have proper email format
       }
     },
-    // The password cannot be null
     password: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING, // The password is a string
+      allowNull: false // It cannot be null
     }
   });
-  // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
+  // This method is used to check if the password entered matches the stored (hashed) password
   User.prototype.validPassword = function(password) {
+    // compareSync compares an unhashed string and a hash value
     return bcrypt.compareSync(password, this.password);
   };
-  // Hooks are automatic methods that run during various phases of the User Model lifecycle
-  // In this case, before a User is created, we will automatically hash their password
+  // Add an automatic step to use bcrypt to hash the password before saving it in the database
   User.addHook("beforeCreate", function(user) {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });

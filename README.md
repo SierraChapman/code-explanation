@@ -26,7 +26,11 @@ The `index.js` file was likely generating using the sequelize-cli with the comma
 
 ### user.js
 
-defines user model
+The `user.js` file defines the `User` sequelize model, which users in the database. It makes the following statements:
+* A user has an email, which is stored as a string, cannot be null, must be unique to that user, and must have the form of an email address.
+* A user has a password, which is stored as a string and cannot be null.
+* Before a user is created, their password is hashed using the bcrypt algorithm. This way, plaintext passwords are never stored in the database.
+* The User model contains a method called `validPassword` which checks an unhashed password against the stored hashed password using a `bcryptjs` method. This used to validate that the correct password was entered when a user tries to log in.
 
 ## config
 

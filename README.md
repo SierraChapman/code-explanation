@@ -69,6 +69,22 @@ This file defines the following API routes:
 
 The `public` folder contains files that are sent to the client as static content.
 
+### signup.html
+
+This HTML file generates the signup page, which includes a form containing the inputs for the new user's email address and password and a "sign up" button. There is also a link to the login page. The HTML file also links to the Bootstrap library (for styling), the custom stylesheet, and the client-side JavaScript.
+
+### login.html
+
+This HTML file generates the login page containing a form for the email and password of the user and a link to the signup page.
+
+### members.html
+
+This HTML file generates a welcome page for logged in users. It greets the user, addressing them by their email address, which is filled in by the client-size JavaScript in [members.js](#members.js). There is also a logout button.
+
+### stylesheets/style.css
+
+Most of the styling on this website is done through Bootstrap, but a little bit of custom styling is applied using `style.css` to get the login and signup forms to have sufficient spacing above them.
+
 ### js
 
 client-side javascript
@@ -84,19 +100,3 @@ client-side logic for the members page
 #### signup.js
 
 client-side logic for the signup page
-
-### stylesheets/style.css
-
-Most of the styling on this website is done through [Bootstrap](), but a little bit of custom styling is applied using `style.css` to get the login and signup forms to have sufficient spacing above them.
-
-### login.html
-
-login page
-
-### members.html
-
-members page
-
-### signup.html
-
-signup page

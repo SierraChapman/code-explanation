@@ -67,7 +67,7 @@ This file defines the following API routes:
 
 ## public
 
-files to serve to the client
+The `public` folder contains files that are sent to the client as static content.
 
 ### js
 
@@ -87,7 +87,7 @@ client-side logic for the signup page
 
 ### stylesheets/style.css
 
-styles to be applied to html
+Most of the styling on this website is done through [Bootstrap](), but a little bit of custom styling is applied using `style.css` to get the login and signup forms to have sufficient spacing above them.
 
 ### login.html
 

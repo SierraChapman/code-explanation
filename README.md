@@ -42,7 +42,18 @@ The `config.json` file provides information for establishing the connection to t
 
 ### passport.js
 
-defines authentication behavior
+This file defines the authentication behavior used by passport. It configures passport to do the following:
+
+* A local strategy is used, meaning users sign in directly through this site using a username and password.
+* The username field is the email.
+* When a user tries to sign in, the following steps occur:
+    * The database is searched for a user with a matching email.
+    * If the email was not found, no user data is returned.
+    * If the email was found, the User model's `validPassword` method is used to check the password.
+    * If the password is incorrect, no user data is returned.
+    * If the password is correct, the data for the user that was found is returned.
+* When a user successfully signs in, the user is "serialized," meaning their data is stored on a cookie in their browser. When the browser makes subsequent HTTP requests, this data is sent as `req.user` so that the user can be identified without them having to enter their login data a bunch of times.
+* A user is "deserialized" when they log out.
 
 ### middleware/isAuthenticated.js
 

@@ -30,11 +30,11 @@ defines user model
 
 ## config
 
-configuration files
+This folder contains files defining the settings for passport authentication ([passport.js](#passport.js)) and the connection to the database ([config.json](#config.json)) as well as custom middleware ([isAuthenticated.js](#middleware/isAuthenticated.js)).
 
 ### config.json
 
-info about accessing the database
+The `config.json` file provides information for establishing the connection to the database, which is used in [models/index.js](#index.js). It is usually generated via the sequelize-cli with the command `sequelize init:config` and then edited to accurately reflect the username, password, and database name for the instance of MySQL that will be accessed.
 
 ### passport.js
 

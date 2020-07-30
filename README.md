@@ -16,6 +16,18 @@ The `server.js` file sets up and starts the server. Some of it's important funct
 * Syncing the database with the sequelize models.
 * Starting the server.
 
+## models
+
+This directory contains the files for defining the sequelize models.
+
+### index.js
+
+The `index.js` file was likely generating using the sequelize-cli with the command `sequelize init:models`. This file establishes a connection to the database described in [config/config.json](#config.json) and imports all the models in the `models` folder, saving each model as well as the sequelize connection and the sequelize library in the `db` object.
+
+### user.js
+
+defines user model
+
 ## config
 
 configuration files
@@ -52,18 +64,6 @@ This file defines the following API routes:
 * POST request to `"/api/signup"`: adds the new email and password to the User table in the database. If this was successful, the user is redirected to make a login API request. If adding the user failed (e.g. because the email is already used), an error status code and the error JSON object are sent back.
 * GET request to `"/logout"`: logs out the user and redirects them to the signup page.
 * GET request to `"/api/user_data"`: responds with the current user's email and id if they are logged in; otherwise, responds with an empty object.
-
-## models
-
-models files
-
-### index.js
-
-imports all moels
-
-### user.js
-
-defines user model
 
 ## public
 

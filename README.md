@@ -56,7 +56,7 @@ This file defines the following HTML routes:
 * GET request to `"/login"`: redirects to "/members" if the user is logged in; otherwise, responds with the login page for signing in an existing user.
 * GET request to `"/members"`: uses the [isAuthenticated](#middleware/isAuthenticated.js) custom middleware function to redirect users who are not logged in to the signup page, then sends the html page for viewing the current user's email for logged in users.
 
-### api-routes
+### api-routes.js
 
 This file defines the following API routes:
 
@@ -87,16 +87,26 @@ Most of the styling on this website is done through Bootstrap, but a little bit 
 
 ### js
 
-client-side javascript
-
-#### login.js
-
-client-side logic for the login page
-
-#### members.js
-
-client-side logic for the members page
+The `js` folder contains the client-side JavaScript for each HTML page.
 
 #### signup.js
 
-client-side logic for the signup page
+This file contains JavaScript to handle the submission of the signup form by implementing the following steps:
+
+* When the signup form is submitted, it examines the email and password, and if either are empty, it does nothing.
+* If the email and password are both non-empty, it submits a POST request to `"/api/signup"`, including the email and password in the body of the request.
+* If the request is completed successfully (indicating that the user was added to the database and is now logged in), it navigates to the `"/members"` page.
+* If an error is received from the server (indicating that the user was not added to the database), the error is shown on the page.
+
+#### login.js
+
+This file contains JavaScript to handle the submission of the login form by implementing the following steps:
+
+* When the login form is submitted, it examines the email and password, and if either are empty, it does nothing.
+* If the email and password are both non-empty, it submits a POST request to `"/api/login"`, including the email and password in the body of the request.
+* If the request is completed successfully (indicating that the user was found in the database and is now logged in), it navigates to the `"/members"` page.
+* If an error is received from the server (indicating that the user has not been logged in), the error is shown in the console.
+
+#### members.js
+
+This file contains JavaScript to populate the `"/members"` page with the email address of the currently logged-in user. It does this by submitting a GET request to `"/api/user_data"` and using the email in the response to fill in the `.member-name` span.

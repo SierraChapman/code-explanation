@@ -2,7 +2,17 @@
 This is a walkthrough of a pre-existing application that allows user's to sign up or log in and uses passport to determine if they are logged in.
 
 ## server.js
-sets up the server
+The `server.js` file sets up and starts the server. Some of it's important function are:
+
+* Loading the passport configuration defined in `config/passport.js`.
+* Importing all the sequelize models defined in `models` and saves them as `db`.
+* Adding middleware to the server that:
+    * Parses JSON sent in requests.
+    * Serves the contents of the public file.
+    * Keeps track of the user's login status using express-session.
+    * Uses the passport authentication defined in `config/passport.js`.
+* Syncing the database with the sequelize models.
+* Starting the server.
 
 ## routes
 contains files with stored routes

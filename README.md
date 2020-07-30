@@ -1,6 +1,43 @@
 # Code Explanation
 
-This is a walkthrough I wrote to explain a pre-existing application that checks it a user is signed in using passport. If they are signed in, they are shown a page with their email address and a functioning "log out" button, and if they are not signed in, they can log in or sign up. In addition to writing this README, I edited and added comments in the files themselves. The code was provided by Trilogy Education Services, a 2U, Inc.
+This is a walkthrough I wrote to explain a pre-existing application that authenticates users with the passport module. If they are signed in, they are shown a page with their email address and a functioning "log out" button, and if they are not signed in, they can log in or sign up. In addition to writing this README, I edited and added comments in the files themselves. The code was provided by Trilogy Education Services, a 2U, Inc.
+
+This document first explains the steps to install and run the program. It then goes through this repository file-by-file to explain how the application works.
+
+## Installation Steps
+
+To install and run the program in a development environment, follow these steps.
+
+1. Install dependencies by running this commannd in the terminal:
+
+```bash
+npm install
+```
+
+2. Create the database by running the following command in MySQL Workbench:
+
+```SQL
+CREATE DATABASE passport_demo;
+```
+
+3. Edit the `config.json` file in the `config` folder to make sure it's set to work with your instance of MySQL. In particular, check the username and password in the development section.
+
+```javascript
+"development": {
+    "username": "root", // change to your MySQL username, if not the root account
+    "password": "password", // change to your MySQL password
+    "database": "passport_demo",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+```
+
+4. Start the server by running the following command in the terminal:
+
+```bash
+node server.js
+```
+
+5. Visit [http://localhost:8080/](http://localhost:8080/) in your browser to see the application.
 
 ## server.js
 
